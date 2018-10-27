@@ -1,5 +1,5 @@
 
-# Created by https://www.gitignore.io/api/node
+
 
 ### Node ###
 # Logs
@@ -41,7 +41,7 @@ build/Release
 node_modules/
 jspm_packages/
 kv-key-store/*
-tmp/*
+tmp/
 
 
 # TypeScript v1 declaration files

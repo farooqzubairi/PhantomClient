@@ -20,8 +20,8 @@ var sleep = async function (sleep_time_ms) {
 	return new Promise(resolve => setTimeout(resolve, sleep_time_ms));
 }
 
-async function getClientForOrg (userorg, username) {
-	logger.info('getClientForOrg - ****** START %s %s', userorg, username)
+async function getFabricClient (userorg, username) {
+	logger.info('getFabricClient - ****** START %s %s', userorg, username)
 	// get a fabric client loaded with a connection profile for this org
 	let config = '-connection-profile-path';
 	logger.info(":::::::"+hfc.getConfigSetting('network'+config));
@@ -36,7 +36,7 @@ async function getClientForOrg (userorg, username) {
 	username: "admin",
 	password: "48378ab443"
 });
-		
+	/*	
 	if(username) {
 
 		
@@ -47,8 +47,8 @@ async function getClientForOrg (userorg, username) {
 			logger.info('User %s was found to be registered and enrolled', username);
 		}
 	}
-	logger.debug('getClientForOrg - ****** END %s %s \n\n', userorg, username)
-
+	logger.debug('getFabricClient - ****** END %s %s \n\n', userorg, username)
+*/
 	return client;
 }
 
@@ -59,5 +59,5 @@ var getLogger = function(moduleName) {
 	return logger;
 };
 
-exports.getClientForOrg = getClientForOrg;
+exports.getClientForOrg = getFabricClient;
 exports.getLogger = getLogger;

@@ -10,7 +10,7 @@ var instantiateChaincode = async function(peers, channelName, chaincodeName, cha
 
 	try {
 		// first setup the client for this org
-		var client = await helper.getClientForOrg(org_name, username);
+		var client = await helper.getFabricClient(org_name, username);
 		logger.debug('Successfully got the fabric client for the organization "%s"', org_name);
 		var channel = client.getChannel(channelName);
 		if(!channel) {

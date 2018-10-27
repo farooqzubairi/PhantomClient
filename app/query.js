@@ -5,7 +5,7 @@ var logger = helper.getLogger('Query');
 var queryChaincode = async function(peer, channelName, chaincodeName, args, fcn, username, org_name) {
 	try {
 		// first setup the client for this org
-		var client = await helper.getClientForOrg(org_name, username);
+		var client = await helper.getFabricClient(org_name, username);
 		logger.debug('Successfully got the fabric client for the organization "%s"', org_name);
 		var channel = client.getChannel(channelName);
 		if(!channel) {
@@ -41,7 +41,7 @@ var queryChaincode = async function(peer, channelName, chaincodeName, args, fcn,
 var getBlockByNumber = async function(peer, channelName, blockNumber, username, org_name) {
 	try {
 		// first setup the client for this org
-		var client = await helper.getClientForOrg(org_name, username);
+		var client = await helper.getFabricClient(org_name, username);
 		logger.info('Successfully got the fabric client for the organization "%s"', org_name);
 		var channel = client.getChannel(channelName);
 		if(!channel) {
@@ -66,7 +66,7 @@ var getBlockByNumber = async function(peer, channelName, blockNumber, username, 
 var getTransactionByID = async function(peer, channelName, trxnID, username, org_name) {
 	try {
 		// first setup the client for this org
-		var client = await helper.getClientForOrg(org_name, username);
+		var client = await helper.getFabricClient(org_name, username);
 		logger.debug('Successfully got the fabric client for the organization "%s"', org_name);
 		var channel = client.getChannel(channelName);
 		if(!channel) {
@@ -91,7 +91,7 @@ var getTransactionByID = async function(peer, channelName, trxnID, username, org
 var getBlockByHash = async function(peer, channelName, hash, username, org_name) {
 	try {
 		// first setup the client for this org
-		var client = await helper.getClientForOrg(org_name, username);
+		var client = await helper.getFabricClient(org_name, username);
 		logger.debug('Successfully got the fabric client for the organization "%s"', org_name);
 		var channel = client.getChannel(channelName);
 		if(!channel) {
@@ -116,7 +116,7 @@ var getBlockByHash = async function(peer, channelName, hash, username, org_name)
 var getChainInfo = async function(peer, channelName, username, org_name) {
 	try {
 		// first setup the client for this org
-		var client = await helper.getClientForOrg(org_name, username);
+		var client = await helper.getFabricClient(org_name, username);
 		logger.debug('Successfully got the fabric client for the organization "%s"', org_name);
 		var channel = client.getChannel(channelName);
 		if(!channel) {
@@ -142,7 +142,7 @@ var getChainInfo = async function(peer, channelName, username, org_name) {
 var getInstalledChaincodes = async function(peer, channelName, type, username, org_name) {
 	try {
 		// first setup the client for this org
-		var client = await helper.getClientForOrg(org_name, username);
+		var client = await helper.getFabricClient(org_name, username);
 		logger.debug('Successfully got the fabric client for the organization "%s"', org_name);
 
 		let response = null
@@ -185,7 +185,7 @@ var getInstalledChaincodes = async function(peer, channelName, type, username, o
 var getChannels = async function(peer, username, org_name) {
 	try {
 		// first setup the client for this org
-		var client = await helper.getClientForOrg(org_name, username);
+		var client = await helper.getFabricClient(org_name, username);
 		logger.debug('Successfully got the fabric client for the organization "%s"', org_name);
 
 		let response = await client.queryChannels(peer);
