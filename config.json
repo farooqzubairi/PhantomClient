@@ -1,0 +1,11 @@
+{
+   "host":"localhost",
+   "httpsPort":"4553",
+   "eventWaitTime":"30000",
+   "admins":[
+      {
+         "username":"admin",
+         "secret":""
+      }
+   ]
+}
