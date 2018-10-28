@@ -1,5 +1,5 @@
 ﻿# PhantomClient
-Run Git 
+Run Git clone
 
 run npm install from root directory
 
