@@ -3,14 +3,14 @@ var util = require('util');
 var helper = require('./helper.js');
 var logger = helper.getLogger('invoke-chaincode');
 
-var invokeChaincode = async function(channelName, chaincodeName, fcn, args, username, org_name) {
+var invokeChaincode = async function(channelName, chaincodeName, fcn, args) {
 	logger.debug(util.format('\n============ invoke transaction on channel %s ============\n', channelName));
 	var error_message = null;
 	var tx_id_string = null;
 	try {
 		// first setup the client for this org
-		var client = await helper.getFabricClient(org_name, username);
-		logger.debug('Successfully got the fabric client for the organization "%s"', org_name);
+		var client = await helper.getFabricClient();
+		//logger.debug('Successfully got the fabric client for the organization "%s","");
 		var channel = client.getChannel(channelName);
 		if(!channel) {
 			let message = util.format('Channel %s was not defined in the connection profile', channelName);
@@ -145,7 +145,7 @@ var invokeChaincode = async function(channelName, chaincodeName, fcn, args, user
 	if (!error_message) {
 		let message = util.format(
 			'Successfully invoked the chaincode %s to the channel \'%s\' for transaction ID: %s',
-			org_name, channelName, tx_id_string);
+			"", channelName, tx_id_string);
 		logger.info(message);
 
 		return tx_id_string;
